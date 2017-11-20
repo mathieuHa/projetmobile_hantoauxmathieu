@@ -8,16 +8,55 @@
 </ion-header>
 
 <ion-content>
+  <form (ngSubmit)="addPostForm()">
+    <form-post [post]="post" [buttonName]="buttonName" [loading]="loading"></form-post>
+  </form>
+  <br>
+  <br>
+
+  <ion-spinner *ngIf="waiting"></ion-spinner>
+
+  <br>
+
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
+    <ion-item *ngFor="let post of postList">
+      <!-- Generated template for the PostComponent component -->
+        Affichage d'un Post
+        <ion-card>
+          <ion-card-header>
+            {{post.titre}}
+          </ion-card-header>
+
+          <ion-card-content>
+            {{post.texte}} <br>
+            Auteur : {{post.user.username}}
+
+            <button float-right ion-button color="danger" float-end ion-button (click)="deletePost(post)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+            <button float-right ion-button (click)="editPost($event, post.id)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+            <ion-card *ngFor="let com of post.comments">
+              {{com.texte}}
+
+            </ion-card>
+            <ion-card>
+              <!--<form (ngSubmit)="addComForm()">
+                <ion-label>Commentaire</ion-label>
+                <ion-input type="text" [(ngModel)]="mycom.texte" name="texte"></ion-input>
+                <button ion-button type="submit" block>Ajouter</button>
+              </form>-->
+            </ion-card>
+
+           </ion-card-content>
+
+         </ion-card>
+
+
+
+       <!--<post [post]="post"></post>-->
+
+    </ion-item>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
 </ion-content>

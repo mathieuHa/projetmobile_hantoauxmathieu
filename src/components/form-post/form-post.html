@@ -1,0 +1,12 @@
+  <ion-item>
+    <ion-label floating>Titre</ion-label>
+    <ion-input type="text" [(ngModel)]="post.titre" name="titre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Contenu</ion-label>
+    <ion-input type="text" [(ngModel)]="post.texte" name="texte"></ion-input>
+  </ion-item>
+  <br>
+  <button ion-button type="submit" block>{{buttonName}}</button>
+  <ion-spinner *ngIf="loading"></ion-spinner>
+  {{status}}
