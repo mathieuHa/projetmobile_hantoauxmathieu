@@ -28,7 +28,7 @@ export class AuthServiceProvider {
       'client_secret': '4ok2x70rlfokc8g0wws8c8kwcokw80k44sg48goc0ok4w0so0k'
     };
     return this.http
-      .post('http://localhost/api/web/app_dev.php/api/oauth/v2/token', body);
+      .post('http://api.hanotaux.fr/api/oauth/v2/token', body);
   }
 
   // Logout a user, destroy token and remove

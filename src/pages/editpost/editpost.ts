@@ -5,6 +5,7 @@ import {PostServiceProvider} from '../../providers/post-service/post-service';
 import {PostwId} from '../../Classes/PostwId';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {LoginPage} from '../login/login';
+import {ListPage} from "../list/list";
 
 /**
  * Generated class for the EditpostPage page.
@@ -36,6 +37,10 @@ export class EditpostPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditpostPage');
+  }
+
+  goToList() {
+    this.navCtrl.push(ListPage);
   }
 
   ionViewCanEnter() {

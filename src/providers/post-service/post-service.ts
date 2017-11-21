@@ -14,7 +14,7 @@ export class PostServiceProvider {
   private urlApi:string;
   constructor(public http: HttpClient, private auth: AuthServiceProvider) {
     console.log('Hello PostServiceProvider Provider');
-    this.urlApi = "http://localhost/api/web/app_dev.php/api/post";
+    this.urlApi = "http://api.hanotaux.fr/api/post";
   }
 
   getPosts() : Observable<any> {

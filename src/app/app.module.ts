@@ -18,6 +18,10 @@ import {PostDetailPage} from '../pages/post-detail/post-detail';
 import {EditpostPage} from '../pages/editpost/editpost';
 import {FormPostComponent} from '../components/form-post/form-post';
 import {PostComponent} from '../components/post/post';
+import {Network} from "@ionic-native/network";
+import {NativeStorage} from "@ionic-native/native-storage";
+import {IonicStorageModule} from "@ionic/storage";
+import {ListOfflinePage} from "../pages/list-offline/list-offline";
 
 @NgModule({
   declarations: [
@@ -29,12 +33,14 @@ import {PostComponent} from '../components/post/post';
     PostDetailPage,
     EditpostPage,
     FormPostComponent,
-    PostComponent
+    PostComponent,
+    ListOfflinePage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -47,9 +53,12 @@ import {PostComponent} from '../components/post/post';
     PostDetailPage,
     EditpostPage,
     FormPostComponent,
-    PostComponent
+    PostComponent,
+    ListOfflinePage
   ],
   providers: [
+    Network,
+    NativeStorage,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -4,6 +4,7 @@ import {LoginPage} from '../login/login';
 import {AuthServiceProvider} from '../../providers/auth-service/auth-service';
 import {PostServiceProvider} from '../../providers/post-service/post-service';
 import {Post} from '../../Classes/Post';
+import {ListPage} from "../list/list";
 
 @Component({
   selector: 'page-add-post',
@@ -31,6 +32,10 @@ export class AddPostPage {
       }, 600);
     }
     return this.auth.authenticated();
+  }
+
+  goToList() {
+    this.navCtrl.push(ListPage);
   }
 
   addPostForm(): void {

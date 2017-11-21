@@ -3,23 +3,17 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>List Offline</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <form (ngSubmit)="addPostForm()">
-    <form-post [post]="post" [buttonName]="buttonName" [loading]="loading"></form-post>
-  </form>
-  <br>
-  <br>
-
   <ion-spinner *ngIf="waiting"></ion-spinner>
 
   <br>
 
   <ion-list>
-    Affichage d'un Post
+    Affichage d'un Post Offline
     <ion-card *ngFor="let post of postList">
           <ion-card-header>
             {{post.titre}}

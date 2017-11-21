@@ -10,10 +10,10 @@ import {Network} from "@ionic-native/network";
 import {NativeStorage} from "@ionic-native/native-storage";
 
 @Component({
-  selector: 'page-list',
-  templateUrl: 'list.html'
+  selector: 'page-list-offline',
+  templateUrl: 'list-offline.html'
 })
-export class ListPage {
+export class ListOfflinePage {
   postList: Post[];
   post: Post;
   mycom: Comment;
@@ -77,33 +77,15 @@ export class ListPage {
 
 
   private getPosts() {
-    this.psp.getPosts()
-      .subscribe(data => {
-        console.log(data);
-        this.postList = data;
-        console.log("PostList "+ JSON.stringify(this.postList));
-        this.nativeStorage.setItem('post', this.postList)
-          .then(
-            () =>
-              console.log('Stored item!'),
-            error => console.error('Error storing item', error)
-          );
-        console.log("next");
+    this.nativeStorage.getItem('post')
+      .then(
+        data => {
+          this.postList = data;
+          this.waiting=false;
 
-        //NativeStorage.setItem('post', JSON.stringify(this.postList));
-        this.waiting=false;
-      },err => {
-        console.log(err);
-        this.nativeStorage.getItem('post')
-          .then(
-            data => {
-              console.log(JSON.stringify(JSON.parse(data)));
-              this.postList = JSON.parse(data);
-            },
-            error => console.error(error)
-          );
-        this.waiting=false;
-      })
+        },
+        error => console.error(error)
+      );
   }
 
   deletePost(post){

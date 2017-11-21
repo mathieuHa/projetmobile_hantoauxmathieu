@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import {AddPostPage} from '../pages/add-post/add-post';
 import {EditpostPage} from '../pages/editpost/editpost';
 import {AuthServiceProvider} from '../providers/auth-service/auth-service';
+import {ListOfflinePage} from "../pages/list-offline/list-offline";
 
 @Component({
   templateUrl: 'app.html'
@@ -29,6 +30,7 @@ export class MyApp {
         {title: 'Acceuil', component: HomePage},
         {title: 'Connexion', component: LoginPage},
         {title: 'Liste', component: ListPage},
+        {title: 'ListeOffline', component: ListOfflinePage},
         {title: 'Ajouter', component: AddPostPage},
         {title: 'EditPost', component: EditpostPage},
       ];
